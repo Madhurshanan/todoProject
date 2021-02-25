@@ -22,12 +22,30 @@ class TodoFormWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             buildTitle(),
+            SizedBox(height: 8),
+            buildDescription(),
           ],
         ),
       );
 
   Widget buildTitle() => TextFormField(
+        initialValue: title,
+        onChanged: onChangedTitle,
+        validator: (title) {
+          if (title.isEmpty) {
+            return "The Title cannot be emoty";
+          }
+          return null;
+        },
         decoration:
             InputDecoration(border: UnderlineInputBorder(), labelText: "Title"),
       );
+
+  Widget buildDescription() => TextFormField(
+    onChanged: onChangedDescription,
+    decoration: InputDecoration(
+        border: UnderlineInputBorder(), labelText: "Description"),
+  );
+
 }
+
