@@ -45,18 +45,3 @@ SizedBox(
     );
   }
 }
-
-/*
-child: Column(
-mainAxisAlignment: ,
-children: [
-Row(
-children: [
-Expanded(child: Icon(Icons.email)),
-Expanded(child: Text("Email")),
-],
-),
-Expanded(child: Text("Text789@gmail.com"))
-],
-),
-*/
