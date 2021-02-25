@@ -11,6 +11,7 @@ class _AgendaState extends State<Agenda> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
@@ -27,22 +28,19 @@ class _AgendaState extends State<Agenda> {
       ),
       body: Container(
         child: MaterialButton(
+          child: Icon(Icons.add,color: Colors.white, size: 50.0),
           minWidth: double.infinity,
           height: 60.0,
-          onPressed: () {},
+          onPressed: () =>showDialog(context: context,
+            child: Addtodo(),
+            barrierDismissible: false,
+          ),
           color: Colors.purple,
           elevation: 0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-          child: FlatButton(
-            onPressed: () =>showDialog(context: context,
-            child: Addtodo(),
-              barrierDismissible: false,
-            ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           ),
         ),
-      ),
-    );
+      );
   }
 }
 

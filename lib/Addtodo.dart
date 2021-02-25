@@ -37,12 +37,3 @@ class _AddtodoState extends State<Addtodo> {
         ),
       );
 }
-
-/*const SizedBox(height: 8.0),
-      TodoFormWidget(
-          onChangedTitle:(title) => setState(()=>this.title = title
-       ),
-          onChangedDescription(description) =>
-          setState(()=>this.description=description),
-  onSavedTodo:(){}, onChangedDescription: (String value) {  },
-       ),*/

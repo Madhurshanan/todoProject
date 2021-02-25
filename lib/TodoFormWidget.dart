@@ -24,6 +24,8 @@ class TodoFormWidget extends StatelessWidget {
             buildTitle(),
             SizedBox(height: 8),
             buildDescription(),
+            SizedBox(height: 32),
+            buildButton(),
           ],
         ),
       );
@@ -33,7 +35,7 @@ class TodoFormWidget extends StatelessWidget {
         onChanged: onChangedTitle,
         validator: (title) {
           if (title.isEmpty) {
-            return "The Title cannot be emoty";
+            return "The Title cannot be empty";
           }
           return null;
         },
@@ -42,9 +44,18 @@ class TodoFormWidget extends StatelessWidget {
       );
 
   Widget buildDescription() => TextFormField(
+    initialValue: description,
     onChanged: onChangedDescription,
     decoration: InputDecoration(
         border: UnderlineInputBorder(), labelText: "Description"),
+  );
+
+  Widget buildButton()=> SizedBox(
+    width: double.infinity,
+    height: 33.0,
+    child: ElevatedButton(style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(Colors.yellow)
+    ), onPressed: onSavedTodo, child: Text("Save")),
   );
 
 }
