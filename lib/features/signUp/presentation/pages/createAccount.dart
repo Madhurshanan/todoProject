@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mobileuiintern/features/signUp/presentation/widgets/conditionsWidget.dart';
+
+import '../../../../core/inputWidget.dart';
 
 class CreateAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-  resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
@@ -28,9 +31,9 @@ class CreateAccount extends StatelessWidget {
                   child: Image.asset("images/1.jpg"),
                 ),
               ),
-              Input(hint: "Full Name"),
-              Input(hint: "Email"),
-              Input(obscureText: true, hint: "Password"),
+              Input(),
+              Input(),
+              Input(),
               SizedBox(height: 10.0),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
@@ -53,49 +56,11 @@ class CreateAccount extends StatelessWidget {
                   ),
                 ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("By Pressing 'Join' you agree to our"),
-                  FlatButton(
-                    onPressed: () {
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child: Text(
-                        " Terms & Conditions",
-                        style: TextStyle(color: Colors.purple),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 55.0),
-                ],
-              )
+              const ConditionsWidget()
             ],
           ),
         ),
       ),
     );
   }
-}
-
-Widget Input({obscureText = false, hint}) {
-  return Padding(
-    padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
-    child: Column(
-      children: [
-        SizedBox(height: 10.0),
-        TextField(
-          obscureText: obscureText,
-          decoration: InputDecoration(
-              hintText: hint,
-              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey[400])),
-              border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey[400]))),
-        ),
-      ],
-    ),
-  );
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'todo.dart';
 import 'package:provider/provider.dart';
-import 'loginPage.dart';
+import 'features/login/presentation/pages/loginPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     create: (context) =>todoProvider(),
 
     child: MaterialApp(
-      home: loginPage(),
+      home: LoginPage(),
     ),
     );
 

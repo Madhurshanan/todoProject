@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileuiintern/agenda.dart';
-import 'CreateAccount.dart';
+import 'package:mobileuiintern/core/inputWidget.dart';
 
-class loginPage extends StatelessWidget {
+import '../../../signUp/presentation/pages/createAccount.dart';
+
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,26 +33,23 @@ class loginPage extends StatelessWidget {
                   child: Image.asset("images/1.jpg"),
                 ),
               ),
-              Input(hint: "Email"),
-              Input(obscureText: true, hint: "Password"),
+              Input(),
+              Input(),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 100.0),
                 child: Container(
                   child: MaterialButton(
                     minWidth: double.infinity,
                     height: 60.0,
-                    onPressed: () {
-
-                    },
+                    onPressed: () {},
                     color: Colors.yellow,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50)),
                     child: FlatButton(
-                      onPressed:() {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Agenda()
-                        ));
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Agenda()));
                       },
                       child: Text(
                         "Login",
@@ -68,11 +67,11 @@ class loginPage extends StatelessWidget {
                 children: [
                   Text("Don't Joined Yet!"),
                   FlatButton(
-                    onPressed:() {
+                    onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => CreateAccount(),
-                  ));
-                  },
+                        builder: (context) => CreateAccount(),
+                      ));
+                    },
                     child: Text(
                       " Join",
                       style: TextStyle(color: Colors.purple),
@@ -89,7 +88,7 @@ class loginPage extends StatelessWidget {
   }
 }
 
-Widget Input({obscureText = false, hint}) {
+Widget input({obscureText = false, hint}) {
   return Padding(
     padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
     child: Column(
