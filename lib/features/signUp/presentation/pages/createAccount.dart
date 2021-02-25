@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobileuiintern/features/signUp/presentation/widgets/conditionsWidget.dart';
 
 import '../../../../core/inputWidget.dart';
@@ -14,6 +15,8 @@ class CreateAccount extends StatelessWidget {
           onPressed: () {
             //We can use this button in any situation if we add a home screen to it
             /*Navigator.pop(context);*/
+            Get.back();
+
           },
           icon: Icon(
             Icons.arrow_back,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'todo.dart';
 import 'package:provider/provider.dart';
 import 'features/login/presentation/pages/loginPage.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => ChangeNotifierProvider(
     create: (context) =>todoProvider(),
 
-    child: MaterialApp(
+    child: GetMaterialApp(
       home: LoginPage(),
     ),
     );

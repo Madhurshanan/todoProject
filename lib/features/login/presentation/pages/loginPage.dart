@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobileuiintern/agenda.dart';
 import 'package:mobileuiintern/core/inputWidget.dart';
 
@@ -68,9 +69,10 @@ class LoginPage extends StatelessWidget {
                   Text("Don't Joined Yet!"),
                   FlatButton(
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => CreateAccount(),
-                      ));
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //   builder: (context) => CreateAccount(),
+                      // ));
+                      Get.to(CreateAccount());
                     },
                     child: Text(
                       " Join",
