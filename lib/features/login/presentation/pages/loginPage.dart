@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobileuiintern/core/userName.dart';
 import 'package:mobileuiintern/core/userPassword.dart';
 import 'package:mobileuiintern/core/userEmail.dart';
 import 'package:mobileuiintern/features/login/presentation/pages/loginViewModel.dart';
@@ -34,7 +33,7 @@ class LoginPage extends StatelessWidget {
                     // Password(textEditingController:),
                     UserPassword(
                       textEditingController: model.passwordOCntroller,
-                      hintText: 'Password',
+
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 100.0),

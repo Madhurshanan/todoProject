@@ -34,7 +34,7 @@ class CreateAccount extends StatelessWidget {
               ),
               Useremail(),
               UserName(),
-              Password(),
+              UserPassword(),
               SizedBox(height: 10.0),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
