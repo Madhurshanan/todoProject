@@ -42,7 +42,8 @@ class CreateAccount extends StatelessWidget {
                   child: MaterialButton(
                     minWidth: double.infinity,
                     height: 60.0,
-                    onPressed: () {},
+                    onPressed: () async {
+                       await model.register();},
                     color: Colors.yellow,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
