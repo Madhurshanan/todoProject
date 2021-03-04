@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobileuiintern/core/Password.dart';
-import 'package:mobileuiintern/core/Useremail.dart';
-import 'package:mobileuiintern/features/agenda/presentation/pages/agenda.dart';
+import 'package:mobileuiintern/core/userName.dart';
+import 'package:mobileuiintern/core/userPassword.dart';
+import 'package:mobileuiintern/core/userEmail.dart';
 import 'package:mobileuiintern/features/login/presentation/pages/loginViewModel.dart';
 import 'package:mobileuiintern/features/register/presentation/pages/createAccount.dart';
 import 'package:mobileuiintern/serviceLocator.dart';
@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
                       textEditingController: model.nameOCntroller,
                     ),
                     // Password(textEditingController:),
-                    Useremail(
+                    UserPassword(
                       textEditingController: model.passwordOCntroller,
                       hintText: 'Password',
                     ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Password extends StatelessWidget {
+class UserPassword extends StatelessWidget {
   final TextEditingController textEditingController;
   const Password({
     Key key,
