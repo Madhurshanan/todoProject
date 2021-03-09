@@ -3,13 +3,18 @@ import 'package:get/get.dart';
 import 'package:mobileuiintern/core/UserPassword.dart';
 import 'package:mobileuiintern/core/UserEmail.dart';
 import 'package:mobileuiintern/core/userName.dart';
+import 'package:mobileuiintern/features/register/presentation/pages/registerViewModel.dart';
 import 'package:mobileuiintern/features/register/presentation/widgets/conditionsWidget.dart';
+import 'package:mobileuiintern/serviceLocator.dart';
 
 class CreateAccount extends StatelessWidget {
+  /* get viewModelBuilder => locator<RegisterViewModel>();
+*/
+  get model => locator<RegisterViewModel>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
@@ -43,7 +48,7 @@ class CreateAccount extends StatelessWidget {
                     minWidth: double.infinity,
                     height: 60.0,
                     onPressed: () async {
-                       await model.register();},
+                      await model.register();},
                     color: Colors.yellow,
                     elevation: 0,
                     shape: RoundedRectangleBorder(

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:mobileuiintern/core/userPassword.dart';
 import 'package:mobileuiintern/core/userEmail.dart';
 import 'package:mobileuiintern/features/login/presentation/pages/loginViewModel.dart';
-import 'package:mobileuiintern/features/register/presentation/pages/createAccount.dart';
+import 'package:mobileuiintern/features/register/presentation/pages/registerPage.dart';
 import 'package:mobileuiintern/serviceLocator.dart';
 import 'package:stacked/stacked.dart';
 
@@ -14,7 +14,6 @@ class LoginPage extends StatelessWidget {
     return ViewModelBuilder<LoginViewModel>.reactive(
         builder: (context, model, widget) {
           return Scaffold(
-            resizeToAvoidBottomInset: false,
             appBar: AppBar(
               backgroundColor: Colors.white,
             ),
