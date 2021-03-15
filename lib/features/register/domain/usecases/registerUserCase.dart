@@ -1,5 +1,3 @@
-
-
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,7 +26,7 @@ class Params extends Equatable {
     @required this.username,
   })  : assert(email != null, 'Email cannot be null'),
         assert(password != null, 'Password cannot be null'),
-         assert(username != null, 'Username cannot be null');
+        assert(username != null, 'Username cannot be null');
 
   @override
   List<Object> get props => [email, password, username];

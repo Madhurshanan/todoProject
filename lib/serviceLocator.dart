@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mobileuiintern/features/login/data/datasources/loginDataSource.dart';
@@ -15,7 +16,15 @@ import 'features/register/presentation/pages/registerViewModel.dart';
 GetIt locator = GetIt.instance;
 
 setUpServiceLocator() {
+  initCore();
   initLogin();
+  initRegister();
+}
+
+void initCore() {
+  ///! core
+  locator.registerLazySingleton(() => FirebaseAuth.instance);
+  locator.registerLazySingleton(() => FirebaseFirestore.instance);
 }
 
 void initLogin() {
@@ -30,13 +39,9 @@ void initLogin() {
   locator.registerLazySingleton<LoginDataSource>(
       () => LoginDataSourceImpl(firebaseAuth: locator()));
 
-  ///! core
-  locator.registerLazySingleton(() => FirebaseAuth.instance);
-
   ///*viewodels
   locator.registerFactory(() => LoginViewModel(loginUseCase: locator()));
 }
-
 
 void initRegister() {
   ///* use cases
@@ -47,8 +52,9 @@ void initRegister() {
       () => RegisterRepositoryImpl(registerDataSource: locator()));
 
   ///* datasource
-  locator.registerLazySingleton<RegisterDataSource>(
-      () => RegisterDataSourceImpl(firebaseAuth: locator()));
+  locator.registerLazySingleton<RegisterDataSource>(() =>
+      RegisterDataSourceImpl(
+          firebaseAuth: locator(), firebaseFirestore: locator()));
 
   ///! core
   locator.registerLazySingleton(() => FirebaseAuth.instance);

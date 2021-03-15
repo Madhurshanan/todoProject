@@ -8,7 +8,7 @@ import 'package:mobileuiintern/features/register/presentation/pages/registerPage
 import 'package:mobileuiintern/serviceLocator.dart';
 import 'package:stacked/stacked.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<LoginViewModel>.reactive(

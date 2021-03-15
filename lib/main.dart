@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobileuiintern/serviceLocator.dart';
 import 'package:provider/provider.dart';
-import 'features/login/presentation/pages/loginPage.dart';
+import 'features/login/presentation/pages/loginView.dart';
 import 'features/todo/presentation/pages/todo.dart';
 
 void main() async {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (context) => todoProvider(),
         child: GetMaterialApp(
-          home: LoginPage(),
+          home: LoginView(),
         
         ),
       );
