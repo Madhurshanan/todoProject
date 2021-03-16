@@ -7,26 +7,25 @@ class ConditionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text("By Pressing 'Join' you agree to our"),
-        FlatButton(
-          onPressed: () {
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(0.0),
-            child: Text(
-              " Terms & Conditions",
-              style: TextStyle(color: Colors.purple),
+    return Padding(
+      padding: const EdgeInsets.only(top: 12.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("By Pressing 'Join' you agree to our"),
+          FlatButton(
+            onPressed: () {},
+            child: Padding(
+              padding: const EdgeInsets.all(0.0),
+              child: Text(
+                " Terms & Conditions",
+                style: TextStyle(color: Colors.purple),
+              ),
             ),
           ),
-        ),
-        SizedBox(height: 55.0),
-      ],
+          SizedBox(height: 55.0),
+        ],
+      ),
     );
   }
 }
-
-
-

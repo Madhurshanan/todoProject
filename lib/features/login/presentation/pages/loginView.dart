@@ -14,9 +14,6 @@ class LoginView extends StatelessWidget {
     return ViewModelBuilder<LoginViewModel>.reactive(
         builder: (context, model, widget) {
           return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.white,
-            ),
             body: SingleChildScrollView(
               child: SafeArea(
                 child: Container(
@@ -28,16 +25,16 @@ class LoginView extends StatelessWidget {
                           child: Image.asset("images/1.jpg"),
                         ),
                       ),
-                      Useremail(
+                      TextFormFieldCustom(
                         textEditingController: model.nameOCntroller,
                       ),
                       // Password(textEditingController:),
-                      UserPassword(
+                      TextFormFieldCustom(
                         textEditingController: model.passwordOCntroller,
                       ),
                       Padding(
                         padding:
-                            const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 100.0),
+                            const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                         child: Container(
                           child: MaterialButton(
                             minWidth: double.infinity,
@@ -73,7 +70,7 @@ class LoginView extends StatelessWidget {
                               style: TextStyle(color: Colors.purple),
                             ),
                           ),
-                          SizedBox(height: 50.0),
+                          //SizedBox(height: 50.0),
                         ],
                       )
                     ],

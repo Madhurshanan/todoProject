@@ -1,5 +1,4 @@
 
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mobileuiintern/core/Failures/failures.dart';

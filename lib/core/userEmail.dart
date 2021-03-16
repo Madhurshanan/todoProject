@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class Useremail extends StatelessWidget {
+class TextFormFieldCustom extends StatelessWidget {
   final TextEditingController textEditingController;
   final String hintText;
-  const Useremail({
+  const TextFormFieldCustom({
     Key key,
     this.textEditingController, this.hintText,
   }) : super(key: key);

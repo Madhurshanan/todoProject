@@ -8,14 +8,15 @@ class RegisterViewModel extends BaseViewModel {
 
   RegisterViewModel({@required this.registerUseCase})
       : assert(registerUseCase != null, 'Register usecase cannot be null');
-  final nameOCntroller = TextEditingController();
+  final emailOCntroller = TextEditingController();
   final passwordOCntroller = TextEditingController();
+  final nameOCntroller = TextEditingController();
 
   Future<void> register() async {
     final res = await registerUseCase(Params(
-        email: 'ravindutharaka23@gmail.com',
-        password: 'afzal@123',
-        username: 'afzal'));
+        email: emailOCntroller.text,
+        password: passwordOCntroller.text,
+        username: nameOCntroller.text));
 
     res.fold((l) {
       Get.snackbar('Error Occured', l.failureMessage);
