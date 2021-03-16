@@ -13,7 +13,7 @@ class RegisterViewModel extends BaseViewModel {
 
   Future<void> register() async {
     final res = await registerUseCase(Params(
-        email: 'mafsalhussain20@gmail.com',
+        email: 'ravindutharaka23@gmail.com',
         password: 'afzal@123',
         username: 'afzal'));
 

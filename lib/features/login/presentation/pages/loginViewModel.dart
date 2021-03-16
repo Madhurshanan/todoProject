@@ -13,7 +13,7 @@ class LoginViewModel extends BaseViewModel {
 
   Future<void> login() async {
     final res = await loginUseCase(
-        Params(email: 'mafsalhussain20@gmail.com', password: 'afzal@123'));
+        Params(email: nameOCntroller.text, password: passwordOCntroller.text));
 
     res.fold((l) {
       Get.snackbar('Error Occured', l.failureMessage);

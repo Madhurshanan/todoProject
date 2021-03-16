@@ -47,7 +47,7 @@ class CreateAccount extends StatelessWidget {
                           minWidth: double.infinity,
                           height: 60.0,
                           onPressed: () async {
-                            // await model.register();
+                            await model.register();
                           },
                           color: Colors.yellow,
                           elevation: 0,

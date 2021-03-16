@@ -56,8 +56,6 @@ void initRegister() {
       RegisterDataSourceImpl(
           firebaseAuth: locator(), firebaseFirestore: locator()));
 
-  ///! core
-  locator.registerLazySingleton(() => FirebaseAuth.instance);
 
   ///*viewodels
   locator.registerFactory(() => RegisterViewModel(registerUseCase: locator()));

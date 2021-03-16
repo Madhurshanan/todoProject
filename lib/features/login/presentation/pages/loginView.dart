@@ -17,64 +17,67 @@ class LoginView extends StatelessWidget {
             appBar: AppBar(
               backgroundColor: Colors.white,
             ),
-            body: SafeArea(
-              child: Container(
-                child: Column(
-                  children: <Widget>[
-                    Expanded(
-                      child: ClipOval(
-                        child: Image.asset("images/1.jpg"),
+            body: SingleChildScrollView(
+              child: SafeArea(
+                child: Container(
+                  height: Get.height,
+                  child: Column(
+                    children: <Widget>[
+                      Expanded(
+                        child: ClipOval(
+                          child: Image.asset("images/1.jpg"),
+                        ),
                       ),
-                    ),
-                    Useremail(
-                      textEditingController: model.nameOCntroller,
-                    ),
-                    // Password(textEditingController:),
-                    UserPassword(
-                      textEditingController: model.passwordOCntroller,
-
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 100.0),
-                      child: Container(
-                        child: MaterialButton(
-                          minWidth: double.infinity,
-                          height: 60.0,
-                          onPressed: () async {
-                            // Get.to(Agenda());
-                            await model.login();
-                          },
-                          color: Colors.yellow,
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50)),
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
+                      Useremail(
+                        textEditingController: model.nameOCntroller,
+                      ),
+                      // Password(textEditingController:),
+                      UserPassword(
+                        textEditingController: model.passwordOCntroller,
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 100.0),
+                        child: Container(
+                          child: MaterialButton(
+                            minWidth: double.infinity,
+                            height: 60.0,
+                            onPressed: () async {
+                              // Get.to(Agenda());
+                              await model.login();
+                            },
+                            color: Colors.yellow,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50)),
+                            child: Text(
+                              "Login",
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Don't Joined Yet!"),
-                        FlatButton(
-                          onPressed: () {
-                            Get.to(() => CreateAccount());
-                          },
-                          child: Text(
-                            " Join",
-                            style: TextStyle(color: Colors.purple),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Don't Joined Yet!"),
+                          FlatButton(
+                            onPressed: () {
+                              Get.to(() => CreateAccount());
+                            },
+                            child: Text(
+                              " Join",
+                              style: TextStyle(color: Colors.purple),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 50.0),
-                      ],
-                    )
-                  ],
+                          SizedBox(height: 50.0),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
