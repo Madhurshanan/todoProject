@@ -8,9 +8,9 @@ class TodoEntites extends Equatable{
   final String docId;
 
   TodoEntites({
-  @required this.docId,
-    @required this.title,
-    @required this.description,
+  this.docId,
+  this.title,
+  this.description,
   });
 
   @override

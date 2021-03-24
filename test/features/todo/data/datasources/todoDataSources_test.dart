@@ -1,5 +1,3 @@
-
-
 import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -35,83 +33,44 @@ void main() {
     mockDocRef = MockDocRef();
     todoDataSourcesImpl = TodoDataSourcesImpl(firestore: mockFirebaseFirestore);
     mockUuid = MockUuid();
+    todoDataSourcesImpl =
+        TodoDataSourcesImpl(firestore: mockFirebaseFirestore, uuid: mockUuid);
   });
 
+  final todo = TodoModels(docId: '123', title: 'A', description: 'B');
 
-    test('should add todo list Successfully', () async {
-    when(mockFirebaseFirestore.collection(any)).thenReturn(
-        mockCollecitonreference);
-    when(mockFirebaseFirestore.collection('todo'))
+  final todo1 = TodoEntites(docId: '', title: 'AA', description: 'BB');
+
+  final Map<String, dynamic> tData = {
+    'docID': '',
+    'title': "AA",
+    'task': "BB",
+  };
+
+  test('should add todo list Successfully', () async {
+    when(mockFirebaseFirestore.collection('todos'))
         .thenReturn(mockCollecitonreference);
-    when(mockUuid.v1()).thenAnswer((_)  => 'Void');
+    when(mockUuid.v1()).thenAnswer((_) => 'id');
     when(mockCollecitonreference.doc(any)).thenReturn(mockDocRef);
     when(mockDocRef.set({
       'title': 'title',
       'description': 'description',
     })).thenAnswer((_) async => Void);
-
-    expect(
-        todoDataSourcesImpl.insertTodo('title', 'description'), isA<Future<void>>());
-    });
-    /*when(mockCollecitonreference.doc(any)).thenReturn(mockDocRef);
-    when(mockDocRef.set({
-      'title': 'title',
-      'description': 'description',
-    })).thenAnswer((_) async => Void);
-    expect(todoDataSourcesImpl.insertTodo("title", "description"), isA<Future<void>>());
-  });*/
-
+    expect(todoDataSourcesImpl.insertTodo('title', 'description'),
+        isA<Future<void>>());
+  });
 
   test('should throw  exception when trying to insert ', () async {
-    when(mockFirebaseFirestore.collection(any)).thenReturn(
-        mockCollecitonreference);
-
+    when(mockFirebaseFirestore.collection(any))
+        .thenReturn(mockCollecitonreference);
+    
+    when(mockUuid.v1()).thenAnswer((_) => "b");
+    TodoModels todoModels =TodoModels(title: 'A', description: 'B', docId: 'b');
     when(mockCollecitonreference.doc(any)).thenReturn(mockDocRef);
-    when(mockDocRef.set({
-      'title': 'title',
-      'description': 'description',
-    })).thenAnswer((realInvocation) async => throw Exception('Error'));
+    when(mockDocRef.set(todoModels.toMap())).thenAnswer((realInvocation) async => throw Exception('Error'));
 
     final call = todoDataSourcesImpl.insertTodo;
-    expect(() => call("title", "description"), throwsException);
 
+    expect(() => call(todoModels.title,todoModels.description), throwsException);
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*void main(){
-  MockFirebaseFirestore mockFirebaseFirestore;
-  MockCollecitonreference mockCollecitonreference;
-  MockDocRef mockDocRef;
-  TodoDataSourcesImpl todoDataSourcesImpl;
-
-  setUp((){
-    mockFirebaseFirestore = MockFirebaseFirestore();
-    todoDataSourcesImpl = TodoDataSourcesImpl(firestore: mockFirebaseFirestore);});
-
-    test('It should sucsess when it returns', () async {
-      when(mockFirebaseFirestore.collection('todo')).thenReturn(mockCollecitonreference);
-
-      when(mockCollecitonreference.doc(any)).thenReturn(mockDocRef);
-      when(mockDocRef.set({
-        'title': 'title',
-        'description': 'description',
-      })).thenAnswer((_) async => Void);
-
-      expect(await todoDataSourcesImpl.insertTodo('title','task'), 'Data added succesfull');
-    });*/

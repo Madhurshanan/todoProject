@@ -28,9 +28,9 @@ class MockInsertTodoRepository extends Mock
 
 
   test("It will fail when called", () async {
-    when(mockInsertTodoRepository.insertTodo('a', 'b'))
+    when(mockInsertTodoRepository.insertTodo('A', 'B'))
         .thenAnswer((_) async => Left(AuthFailure('Error')));
-    expect(await todoUsecae(Params(title: 'a',description: 'b')),
+    expect(await todoUsecae(Params(title: 'A',description: 'B')),
     Left(AuthFailure('Error')));
   });
  }

@@ -1,12 +1,8 @@
-
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mobileuiintern/features/login/data/datasources/loginDataSource.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../../../mocks/firebaseMocks.dart';
-
-
 
 void main() {
   MockFirebaseAuth mockFirebaseAuth;

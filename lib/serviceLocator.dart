@@ -10,6 +10,7 @@ import 'package:mobileuiintern/features/todo/data/datasources/todoDataSources.da
 import 'package:mobileuiintern/features/todo/data/repositories/todoRepositoryImpl.dart';
 import 'package:mobileuiintern/features/todo/domain/repositories/todoRepository.dart';
 import 'package:mobileuiintern/features/todo/domain/usecases/todoUsecaseInsert.dart';
+import 'package:uuid/uuid.dart';
 
 import 'features/register/data/datasources/registerDataSource.dart';
 import 'features/register/data/repositories/registerRepositoryImpl.dart';
@@ -23,7 +24,7 @@ setUpServiceLocator() {
   initCore();
   initLogin();
   initRegister();
-  initTodoViewModel();
+  insertTodoViewModel();
 }
 
 void initCore() {
@@ -66,7 +67,7 @@ void initRegister() {
   locator.registerFactory(() => RegisterViewModel(registerUseCase: locator()));
 }
 
-void initTodoViewModel() {
+void insertTodoViewModel() {
   ///* use cases
   locator.registerLazySingleton(() => TodoUsecaeInsert(toDoRepository: locator()));
 
@@ -76,7 +77,9 @@ void initTodoViewModel() {
 
   ///* datasource
   locator.registerLazySingleton<TodoDataSources>(() =>
-      TodoDataSourcesImpl(firestore: locator()));
+      TodoDataSourcesImpl(firestore: locator(),
+          uuid: locator()));
+  locator.registerLazySingleton(() => Uuid());
 
 
   ///*viewodels

@@ -32,4 +32,14 @@ class TodoRepositoryImpl implements TodoRepository {
       return Left(ExcepitionIsGoingOn(error: e.error.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> getTodo(String title, String description) async {
+    try {
+      return Right(await todoDataSources.getTodo(title, description));
+    } on ExceptionMessage catch (e) {
+      return Left(ExcepitionIsGoingOn(error: e.error.toString()));
+    }
+  }
+
 }
