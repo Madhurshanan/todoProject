@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:mobileuiintern/features/agenda/presentation/pages/agenda.dart';
 import 'package:mobileuiintern/features/login/domain/usecases/loginUseCase.dart';
 import 'package:stacked/stacked.dart';
 
@@ -19,6 +20,7 @@ class LoginViewModel extends BaseViewModel {
       Get.snackbar('Error Occured', l.failureMessage);
     }, (r) {
       Get.snackbar('Success', r);
+      Get.to(Agenda());
     });
   }
 }

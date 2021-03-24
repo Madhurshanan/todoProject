@@ -12,3 +12,8 @@ class AuthFailure extends Failure {
 
   AuthFailure(this.message) : super(failureMessage: message);
 }
+
+class ExcepitionIsGoingOn extends Failure {
+  final String error;
+  ExcepitionIsGoingOn({this.error}) :super(failureMessage: error);
+}

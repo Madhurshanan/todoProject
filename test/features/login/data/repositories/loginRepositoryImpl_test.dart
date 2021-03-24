@@ -11,6 +11,7 @@ class MockLoginDataSource extends Mock implements LoginDataSource {}
 void main() {
   MockLoginDataSource mockLoginDataSource;
   LoginRepositoryImpl loginRepositoryImpl;
+
   setUp(() {
     mockLoginDataSource = MockLoginDataSource();
     loginRepositoryImpl =
@@ -27,7 +28,6 @@ void main() {
       () async {
     when(mockLoginDataSource.login('afs', 'afs')).thenAnswer(
         (realInvocation) async => throw AuthException(message: 'you suck'));
-
     expect(await loginRepositoryImpl.login('afs', 'afs'),
         Left(AuthFailure('you suck')));
   });

@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mobileuiintern/core/exceptions/exceptions.dart';
 
-abstract class LoginDataSource {
+abstract class  LoginDataSource {
   Future<String> login(String password, String email);
 }
 

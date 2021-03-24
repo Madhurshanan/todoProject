@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobileuiintern/core/userPassword.dart';
 import 'package:mobileuiintern/core/userEmail.dart';
 import 'package:mobileuiintern/features/login/presentation/pages/loginViewModel.dart';
 import 'package:mobileuiintern/features/register/presentation/pages/registerPage.dart';

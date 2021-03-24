@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class TaskWidget extends StatelessWidget {
   final Color color;
   final String titile;
-  final String subtitle;
+  final String description;
   const TaskWidget({
     @required this.color,
     @required this.titile,
-    this.subtitle = 'THis ca be null',
+    @required this.description,
   }) : assert(titile != null, 'Title must not be null');
   @override
   Widget build(BuildContext context) {
@@ -22,10 +22,11 @@ class TaskWidget extends StatelessWidget {
             spreadRadius: 1)
       ]),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             margin: EdgeInsets.symmetric(
-              horizontal: 20,
+              horizontal: 0,
             ),
             height: 25,
             width: 25,
@@ -35,17 +36,17 @@ class TaskWidget extends StatelessWidget {
               border: Border.all(color: color, width: 4),
             ),
           ),
-          // Column(
-          //   crossAxisAlignment: CrossAxisAlignment.start,
-          // )
           Column(
             children: [
               Text(
                 titile,
                 style: TextStyle(color: Colors.black, fontSize: 18),
               ),
+              SizedBox(
+                height: 10.0,
+              ),
               Text(
-                subtitle,
+                description,
                 style: TextStyle(color: Colors.black, fontSize: 18),
               ),
             ],
