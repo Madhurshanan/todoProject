@@ -22,7 +22,8 @@ class Params extends Equatable {
   final String description;
   Params({
     @required this.title,
-    @required this.description, String docId,
+    @required this.description,
+    String docId,
   })  : assert(description != null, 'description cannot be null'),
         assert(title != null, 'title cannot be null');
 
