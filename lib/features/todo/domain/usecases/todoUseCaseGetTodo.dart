@@ -1,32 +1,18 @@
-import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-import 'package:mobileuiintern/core/Failures/failures.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:mobileuiintern/core/Failures/failures.dart';
 import 'package:mobileuiintern/core/usecases/usecase.dart';
+import 'package:mobileuiintern/features/todo/domain/entities/todoEntites.dart';
 import 'package:mobileuiintern/features/todo/domain/repositories/todoRepository.dart';
 
-class TodoUseCaseGetTodo extends UseCase<void, Params> {
+class TodoUseCaseGetTodo extends UseCase<List<TodoEntites>, NoParams>{
   final TodoRepository todoRepository;
 
   TodoUseCaseGetTodo({@required this.todoRepository})
       : assert(todoRepository != null, "The repository canot be null");
 
-  @override
-  Future<Either<Failure, void>> call(Params params) {
-    return todoRepository.getTodo(params.title, params.description);
+ @override
+  Future<Either<Failure, List<TodoEntites>>> call(NoParams params) async {
+    return await todoRepository.getTodo();
   }
-}
-
-class Params extends Equatable {
-  final String title;
-  final String description;
-  Params({
-    @required this.title,
-    @required this.description,
-    String docId,
-  })  : assert(description != null, 'description cannot be null'),
-        assert(title != null, 'title cannot be null');
-
-  @override
-  List<Object> get props => [title, description];
 }

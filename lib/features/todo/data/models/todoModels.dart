@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:mobileuiintern/features/todo/domain/entities/todoEntites.dart';
 
@@ -16,7 +15,7 @@ class TodoModels extends TodoEntites {
     return {
       'title': title,
       'description': description,
-      'docId': docId,
+      'id': docId,
     };
   }
 
@@ -24,7 +23,7 @@ class TodoModels extends TodoEntites {
     return TodoModels(
       title: map['title'],
       description: map['description'],
-      docId: map['docId'],
+      docId: map['id'],
     );
   }
 

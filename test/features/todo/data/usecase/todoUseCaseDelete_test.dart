@@ -6,7 +6,6 @@ import 'package:mobileuiintern/core/Failures/failures.dart';
 import 'package:mobileuiintern/features/todo/domain/repositories/todoRepository.dart';
 import 'package:mobileuiintern/features/todo/domain/usecases/todoUsecaseDelete.dart';
 import 'package:mockito/mockito.dart';
-import 'package:uuid/uuid.dart';
 
 class MockDeleteTodoRepository extends Mock implements TodoRepository{}
 
