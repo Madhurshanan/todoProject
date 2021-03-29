@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'dart:math';
 
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -29,7 +30,7 @@ class MockInsertTodoRepository extends Mock
 
   test("It will fail when called", () async {
     when(mockInsertTodoRepository.insertTodo('A', 'B'))
-        .thenAnswer((_) async => Left(AuthFailure('Error')));
+        .thenAnswer((_) async => Left(ExcepitionIsGoingOn(error: "Error")));
     expect(await todoUsecae(Params(title: 'A',description: 'B')),
     Left(ExcepitionIsGoingOn(error: 'Error')));
   });

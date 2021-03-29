@@ -53,7 +53,7 @@ class TodoDataSourcesImpl implements TodoDataSources {
   @override
   Future<void> deleteTodo(String docID) async {
     try {
-      return firestore.collection(docID).doc().delete();
+      return firestore.collection('todos').doc(docID).delete();
     } on ExceptionMessage catch (e) {
       throw ExceptionMessage(error: e.error);
     } on Exception catch (e) {
@@ -65,12 +65,11 @@ class TodoDataSourcesImpl implements TodoDataSources {
   @override
   Future<void> updateTodo(String title, String description) async {
     try {
-      return firestore
+      final uid = uuid.v1();
+       return await firestore
           .collection("todos")
-          .doc("docId")
-          .update({title: title, description: description});
-    } on ExceptionMessage catch (e) {
-      throw ExceptionMessage(error: e.error);
+          .doc(uid)
+          .update(TodoModels(description: description,title: title, docId: uid).toMap());
     } on Exception catch (e) {
       throw ExceptionMessage(error: e.toString());
     }

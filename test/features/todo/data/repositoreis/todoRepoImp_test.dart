@@ -24,22 +24,25 @@ void main() {
   });
 
 //==================================ISERT TODO==================================
-  test('Should return success', () async {
-    when(mockTodoDataSources.insertTodo("title", "description"))
-        .thenAnswer((realInvocation) async => Void);
-    expect(await todoRepositoryImpl.insertTodo("title", "description"),
-        Right(Void));
-  });
+  group('Insert', () {
+    test('Should return success', () async {
+      when(mockTodoDataSources.insertTodo("title", "description"))
+          .thenAnswer((realInvocation) async => Void);
+      expect(await todoRepositoryImpl.insertTodo("title", "description"),
+          Right(Void));
+    });
 
-  test('Should return Failure', () async {
-    when(mockTodoDataSources.insertTodo("title", "description")).thenAnswer(
-        (realInvocation) async => throw ExceptionMessage(error: "Failed"));
-    expect(await todoRepositoryImpl.insertTodo("title", "description"),
-        Left(ExcepitionIsGoingOn(error: "Failed")));
+    test('Should return Failure', () async {
+      when(mockTodoDataSources.insertTodo("title", "description")).thenAnswer(
+          (realInvocation) async => throw ExceptionMessage(error: "Failed"));
+      expect(await todoRepositoryImpl.insertTodo("title", "description"),
+          Left(ExcepitionIsGoingOn(error: "Failed")));
+    });
   });
 
 //=================================GetTODO======================================
   group('GetTodo', () {
+    
     test('Should return sucseess', () async {
       when(mockTodoDataSources.getTodo())
           .thenAnswer((_) async => Future.value(todo));
@@ -84,3 +87,4 @@ void main() {
     });
   });
 }
+//==============================================================================
