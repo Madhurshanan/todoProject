@@ -144,7 +144,9 @@ void main() {
           .thenReturn(mockCollecitonreference);
       when(mockCollecitonreference.doc(any)).thenReturn(mockDocRef);
       when(mockDocRef.set(todoModel.toMap())).thenAnswer((_) async => Void);
-      expect(todoDataSourcesImpl.updateTodo(todoModel.title,todoModel.description),
+      expect(
+          todoDataSourcesImpl.updateTodo(
+              todoModel.title, todoModel.description),
           isA<Future<void>>());
     });
 
@@ -153,11 +155,12 @@ void main() {
       when(mockFirebaseFirestore.collection(any))
           .thenReturn(mockCollecitonreference);
       when(mockCollecitonreference.doc(any)).thenReturn(mockDocRef);
-      when(mockDocRef.set(todoModel.toMap()))
+      when(mockDocRef.update(todoModel.toMap()))
           .thenAnswer((_) async => throw Exception("Error"));
 
       final call = todoDataSourcesImpl.updateTodo;
-      expect(() => call(todoModel.title,todoModel.description), throwsException);
+      expect(
+          () => call(todoModel.title, todoModel.description), throwsException);
     });
   });
 }
