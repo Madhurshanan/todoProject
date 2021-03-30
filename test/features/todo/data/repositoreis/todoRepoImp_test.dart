@@ -40,22 +40,7 @@ void main() {
     });
   });
 
-//=================================GetTODO======================================
-  group('GetTodo', () {
-    
-    test('Should return sucseess', () async {
-      when(mockTodoDataSources.getTodo())
-          .thenAnswer((_) async => todo);
-      expect(await todoRepositoryImpl.getTodo(), Right(todo));
-    });
 
-    test('Should return Failiure when called', () async {
-      when(mockTodoDataSources.getTodo()).thenAnswer(
-          (realInvocation) async => throw ExceptionMessage(error: "Failed"));
-      expect(await todoRepositoryImpl.getTodo(),
-          Left(ExcepitionIsGoingOn(error: "Failed")));
-    });
-  });
 //==================================DELETE======================================
   group('Delete', () {
     test('Should return sucseess', () async {

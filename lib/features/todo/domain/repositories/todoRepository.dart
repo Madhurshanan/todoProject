@@ -6,6 +6,6 @@ abstract class TodoRepository {
   Future<Either<Failure, void>> insertTodo(String title, String description);
   Future<Either<Failure, void>>updateTodo(String title,String desciption); 
   Future<Either<Failure, void>> deleteTodo(String docId);
-  Future<Either<Failure, List<TodoEntites>>> getTodo();
+
 
 }

@@ -15,7 +15,7 @@ class Agenda extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<TodoViewModel>.reactive(
         onModelReady: (model) async {
-          await model.showList();
+         // await model.getTodp();
         },
         builder: (context, model, widget) {
           return Scaffold(
@@ -62,6 +62,6 @@ class Agenda extends StatelessWidget {
             ),
           );
         },
-        viewModelBuilder: () => locator<TodoViewModel>());
+        viewModelBuilder: () => locator<AgendaViewModel>());
   }
 }
