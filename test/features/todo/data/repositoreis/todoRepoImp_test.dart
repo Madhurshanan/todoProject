@@ -45,7 +45,7 @@ void main() {
     
     test('Should return sucseess', () async {
       when(mockTodoDataSources.getTodo())
-          .thenAnswer((_) async => Future.value(todo));
+          .thenAnswer((_) async => todo);
       expect(await todoRepositoryImpl.getTodo(), Right(todo));
     });
 

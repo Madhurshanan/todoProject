@@ -1,59 +1,3 @@
-// @override
-// Widget build(BuildContext context) {
-//   return ViewModelBuilder<ToDoViewModel>.reactive(
-//       onModelReady: (model) async {
-//         await model.getToDoList();
-//       },
-
-/*
-return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Get.to(Profile());
-          },
-          icon: Icon(
-            Icons.account_circle_sharp,
-            size: 50.0,
-            color: Colors.black,
-          ),
-        ),
-        title: Text("Agenda"),
-      ),
-      body: Column(
-        //crossAxisAlignment: CrossAxisAlignment.center,
-        // mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
-            child: TaskWidget(
-              color: Colors.red,
-              titile: 'This is in Agenda Title',
-              description: 'Finally Got the Description',
-            ),
-          ),
-
-          Container(
-            //margin: EdgeInsets.only(left: 20, right: 20, top: 15),
-            child: MaterialButton(
-              child: Icon(Icons.add, color: Colors.white, size: 50.0),
-              minWidth: double.infinity,
-              height: 60.0,
-              onPressed: () => showDialog(
-                context: context,
-                child: AddTodo(),
-                barrierDismissible: false,
-              ),
-              color: Colors.purple,
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50)),
-            ),
-          ),
-        ],
-      ),
-    );
-*/
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -94,8 +38,8 @@ class Agenda extends StatelessWidget {
                 Expanded(
                   child: TaskWidget(
                     color: Colors.red,
-                    // titile: 'This is in Agenda Title',
-                    // description: 'Finally Got the Description',
+                     titile: 'This is in Agenda Title',
+                     description: 'Finally Got the Description',
                   ),
                 ),
                 Container(

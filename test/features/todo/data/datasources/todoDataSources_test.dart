@@ -94,23 +94,53 @@ void main() {
           .thenAnswer((_) async => mockQuerySnapshot);
       when(mockQuerySnapshot.docs).thenReturn([mockQueryDocSnapshot]);
       when(mockQueryDocSnapshot.data()).thenReturn(todo.toMap());
-      final call = todoDataSourcesImpl.getTodo;
 
       expect(await todoDataSourcesImpl.getTodo(), [todo]);
     });
 
-    test('It Shouldfail When it called', () async {
+    test('It Should fail When it called', () async {
       when(mockFirebaseFirestore.collection(any))
           .thenReturn((mockCollecitonreference));
       when(mockCollecitonreference.get())
           .thenAnswer((_) async => throw Exception("Error"));
+      final call = todoDataSourcesImpl.getTodo;
+      expect(() => call(),
+          throwsException);    
     });
 
-    test('It Should failed when it call', () async {
+    test('It Should failed when the data is null', () async {
       when(mockFirebaseFirestore.collection("todos"))
           .thenReturn(mockCollecitonreference);
       when(mockCollecitonreference.get()).thenAnswer((_) async => null);
-      expect(todoDataSourcesImpl.getTodo, throwsException);
+      final call = todoDataSourcesImpl.getTodo;
+      expect(() => call(),
+          throwsException);
+    });
+
+    test('It Should fail When doc is null', () async {
+      when(mockFirebaseFirestore.collection(any))
+          .thenReturn((mockCollecitonreference));
+      when(mockCollecitonreference.get())
+          .thenAnswer((_) async => mockQuerySnapshot);
+      when(mockQuerySnapshot.docs).thenReturn(null);
+
+      final call = todoDataSourcesImpl.getTodo;
+
+      expect(() => call(),
+          throwsException);
+    });
+
+    test('It Should fail if doc is empty', () async {
+      when(mockFirebaseFirestore.collection(any))
+          .thenReturn((mockCollecitonreference));
+      when(mockCollecitonreference.get())
+          .thenAnswer((_) async => mockQuerySnapshot);
+      when(mockQuerySnapshot.docs).thenReturn([]);
+
+      final call = todoDataSourcesImpl.getTodo;
+
+      expect(() => call(),
+          throwsException);
     });
   });
 
