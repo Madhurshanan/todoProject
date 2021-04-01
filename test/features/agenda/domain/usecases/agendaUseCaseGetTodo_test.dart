@@ -43,3 +43,15 @@ void main() {
         Left(ExcepitionIsGoingOn(error: 'Error')));
   });
 }
+// StreamController<String> controller = StreamController<String>.broadcast();
+// Stream stream = controller.stream;;
+// StreamSubscription<String> streamSubscription = stream.listen((value) {
+//       print('Value from controller: $value');
+// }); 
+// controller.sink.add("1"); // prints "Value from controller: 1"
+// controller.sink.add("2"); // prints "Value from controller: 2"
+
+// stream.someMethod() ; // prints
+//                       // Value from controller: 1
+//                       // Value from controller: 2
+// controller.sink.add("3"); // prints "Value from controller: 3" by the someMethod()

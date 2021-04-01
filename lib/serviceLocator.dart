@@ -1,6 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
+import 'package:mobileuiintern/features/agenda/data/datasource/agendaDataSource.dart';
+import 'package:mobileuiintern/features/agenda/data/repositories/agendaRepositoriesImpl.dart';
+import 'package:mobileuiintern/features/agenda/domain/repositories/agendaRepository.dart';
+import 'package:mobileuiintern/features/agenda/domain/usecases/agendaUseCaseGetTodo.dart';
+import 'package:mobileuiintern/features/agenda/domain/usecases/todoUsecaseDelete.dart';
+import 'package:mobileuiintern/features/agenda/presentation/pages/agenda.dart';
+import 'package:mobileuiintern/features/agenda/presentation/pages/agendaViewModel.dart';
 import 'package:mobileuiintern/features/login/data/datasources/loginDataSource.dart';
 import 'package:mobileuiintern/features/login/data/repositories/loginRepositoryImpl.dart';
 import 'package:mobileuiintern/features/login/domain/repositories/loginRepository.dart';
@@ -18,6 +25,7 @@ import 'features/register/domain/repositories/registerRepository.dart';
 import 'features/register/domain/usecases/registerUserCase.dart';
 import 'features/register/presentation/pages/registerViewModel.dart';
 import 'features/todo/presentation/pages/todoViewModel.dart';
+
 GetIt locator = GetIt.instance;
 
 setUpServiceLocator() {
@@ -25,10 +33,11 @@ setUpServiceLocator() {
   initLogin();
   initRegister();
   insertTodoViewModel();
+  getTodoAgendaViewModel();
 }
 
 void initCore() {
-  ///! core
+
   locator.registerLazySingleton(() => FirebaseAuth.instance);
   locator.registerLazySingleton(() => FirebaseFirestore.instance);
 }
@@ -62,26 +71,43 @@ void initRegister() {
       RegisterDataSourceImpl(
           firebaseAuth: locator(), firebaseFirestore: locator()));
 
-
   ///*viewodels
   locator.registerFactory(() => RegisterViewModel(registerUseCase: locator()));
 }
 
+void getTodoAgendaViewModel() {
+  locator.registerLazySingleton(
+      () => AgendaUsecaeDelete(agendaRepository: locator()));
+
+  // usecase
+  locator.registerLazySingleton(
+      () => AgendaUseCaseGetTodo(agendaRepository: locator()));
+  //repository
+  locator.registerLazySingleton<AgendaRepository>(
+      () => AgendaRepositoryImpl(agendaDataSource: locator()));
+  //datasource
+  locator.registerLazySingleton<AgendaDataSource>(
+      () => AgendaDataSourcesImpl(firestore: locator()));
+//viewmodels
+  locator.registerFactory(() => AgendaViewModel(
+      agendaUseCaseGetTodo: locator(), agendaUsecaeDelete: locator()));
+}
+
 void insertTodoViewModel() {
   ///* use cases
-  locator.registerLazySingleton(() => TodoUsecaeInsert(toDoRepository: locator()));
+  locator
+      .registerLazySingleton(() => TodoUsecaeInsert(toDoRepository: locator()));
 
   ///* repositories
   locator.registerLazySingleton<TodoRepository>(
-          () => TodoRepositoryImpl(todoDataSources: locator()));
+      () => TodoRepositoryImpl(todoDataSources: locator()));
 
   ///* datasource
-  locator.registerLazySingleton<TodoDataSources>(() =>
-      TodoDataSourcesImpl(firestore: locator(),
-          uuid: locator()));
+  locator.registerLazySingleton<TodoDataSources>(
+      () => TodoDataSourcesImpl(firestore: locator(), uuid: locator()));
   locator.registerLazySingleton(() => Uuid());
 
-
   ///*viewodels
-  locator.registerLazySingleton(() => TodoViewModel(todoUsecaeInsert: locator()));
+  locator
+      .registerLazySingleton(() => TodoViewModel(todoUsecaeInsert: locator()));
 }

@@ -5,9 +5,9 @@ class TaskWidget extends StatelessWidget {
   final String titile;
   final String description;
   const TaskWidget({
-    @required this.color,
-    @required this.titile,
-    @required this.description,
+    this.color,
+    this.titile,
+    this.description,
   }) : assert(titile != null, 'Title must not be null');
   @override
   Widget build(BuildContext context) {

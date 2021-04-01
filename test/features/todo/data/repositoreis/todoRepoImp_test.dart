@@ -41,21 +41,7 @@ void main() {
   });
 
 
-//==================================DELETE======================================
-  group('Delete', () {
-    test('Should return sucseess', () async {
-      when(mockTodoDataSources.deleteTodo('docid'))
-          .thenAnswer((_) async => Void);
-      expect(await todoRepositoryImpl.deleteTodo('docid'), Right(Void));
-    });
 
-    test('Should return Failiure when called', () async {
-      when(mockTodoDataSources.deleteTodo('docid')).thenAnswer(
-          (realInvocation) async => throw ExceptionMessage(error: "Failed"));
-      expect(await todoRepositoryImpl.deleteTodo('docid'),
-          Left(ExcepitionIsGoingOn(error: "Failed")));
-    });
-  });
 //================================UPDATE========================================
   group('Update', () {
     test('Should return sucseess', () async {

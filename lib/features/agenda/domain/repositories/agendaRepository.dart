@@ -4,4 +4,5 @@ import 'package:mobileuiintern/features/agenda/domain/entites/agendaEntities.dar
 
 abstract class AgendaRepository {
     Future<Either<Failure, List<AgendaEntities>>> getTodo();
+     Future<Either<Failure, void>> deleteTodo(String docId);
 }

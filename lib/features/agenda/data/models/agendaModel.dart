@@ -1,7 +1,7 @@
 
-import 'package:mobileuiintern/features/todo/domain/entities/todoEntites.dart';
+import 'package:mobileuiintern/features/agenda/domain/entites/agendaEntities.dart';
 
-class AgendaModel extends TodoEntites {
+class AgendaModel extends AgendaEntities {
 
   final String title;
   final String description;

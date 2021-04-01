@@ -3,17 +3,17 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mobileuiintern/core/Failures/failures.dart';
 import 'package:mobileuiintern/core/usecases/usecase.dart';
-import 'package:mobileuiintern/features/todo/domain/repositories/todoRepository.dart';
+import 'package:mobileuiintern/features/agenda/domain/repositories/agendaRepository.dart';
 
-class TodoUsecaeDelete extends UseCase<void, Params> {
-  final TodoRepository todoRepository;
+class AgendaUsecaeDelete extends UseCase<void, Params> {
+  final AgendaRepository agendaRepository;
 
-  TodoUsecaeDelete({@required this.todoRepository})
-      : assert(todoRepository != null, "this repository cant be null");
+  AgendaUsecaeDelete({@required this.agendaRepository})
+      : assert(agendaRepository != null, "this repository cant be null");
 
   @override
   Future<Either<Failure, void>> call(Params params) {
-    return todoRepository.deleteTodo(params.docId);
+    return agendaRepository.deleteTodo(params.docId);
   }
 }
 
@@ -21,7 +21,7 @@ class Params extends Equatable {
   final String docId;
 
   Params({
-    @required this.docId,
+    @required this.docId, docID,
   }) : assert(docId != null, 'Document ID cannot be null');
 
   @override

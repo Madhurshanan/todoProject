@@ -23,18 +23,6 @@ class TodoRepositoryImpl implements TodoRepository {
     }
   }
 
-//=============================DELETE TODO======================================
-  @override
-  Future<Either<Failure, void>> deleteTodo(String docId) async {
-    try {
-      return Right(await todoDataSources.deleteTodo(docId));
-    } on ExceptionMessage catch (e) {
-      return Left(ExcepitionIsGoingOn(error: e.error.toString()));
-    }
-  }
-
-
-
 //==============================UPDATE TODO=====================================
   @override
   Future<Either<Failure, void>> updateTodo(
