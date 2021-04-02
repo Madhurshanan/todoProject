@@ -3,18 +3,19 @@ import 'dart:ffi';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mobileuiintern/core/Failures/failures.dart';
-import 'package:mobileuiintern/features/agenda/domain/repositories/agendaRepository.dart';
-import 'package:mobileuiintern/features/agenda/domain/usecases/todoUsecaseDelete.dart';
+import 'package:mobileuiintern/features/agenda/domain/usecases/agendaUsecaseDelete.dart';
 import 'package:mockito/mockito.dart';
 
-class MockDeleteTodoRepository extends Mock implements AgendaRepository{}
+import '../../mocks/agendaMocks.dart';
+
+
 
 void main() {
-  MockDeleteTodoRepository mockDeleteTodoRepository;
+  MockAgendaRepository mockDeleteTodoRepository;
   AgendaUsecaeDelete agendaUsecaeDelete;
 
   setUp(() {
-    mockDeleteTodoRepository = MockDeleteTodoRepository();
+    mockDeleteTodoRepository = MockAgendaRepository();
     agendaUsecaeDelete = AgendaUsecaeDelete(agendaRepository: mockDeleteTodoRepository);
   });
 

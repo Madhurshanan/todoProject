@@ -15,4 +15,6 @@ class AgendaUseCaseGetTodo extends UseCase<List<AgendaEntities>, NoParams> {
   Future<Either<Failure, List<AgendaEntities>>> call(NoParams params) async {
     return await agendaRepository.getTodo();
   }
+
+
 }

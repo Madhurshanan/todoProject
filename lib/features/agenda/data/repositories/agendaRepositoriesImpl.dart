@@ -21,6 +21,7 @@ class AgendaRepositoryImpl implements AgendaRepository {
       return Left(ExcepitionIsGoingOn(error: e.error.toString()));
     }
   }
+
   //=============================DELETE TODO======================================
   @override
   Future<Either<Failure, void>> deleteTodo(String docId) async {
@@ -31,4 +32,8 @@ class AgendaRepositoryImpl implements AgendaRepository {
     }
   }
 
+  @override
+  Stream<List<AgendaEntities>> getTodoStream() {
+    return agendaDataSource.getStream();
+  }
 }

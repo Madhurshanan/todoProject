@@ -1,10 +1,12 @@
 //============================GET TODO PART====================================
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:mobileuiintern/core/exceptions/exceptions.dart';
 import 'package:mobileuiintern/features/agenda/data/models/agendaModel.dart';
 
 abstract class AgendaDataSource {
+  Stream<List<AgendaModel>> getStream();
   Future<List<AgendaModel>> getTodo();
   Future<void> deleteTodo(String docID);
 }
@@ -39,12 +41,20 @@ class AgendaDataSourcesImpl implements AgendaDataSource {
       throw ExceptionMessage(error: e.toString());
     }
   }
+
+  @override
+  Stream<List<AgendaModel>> getStream() {
+    // TODO: implement setStream
+    throw UnimplementedError();
+  }
+
+
 }
 // StreamController<String> controller = StreamController<String>.broadcast();
 // Stream stream = controller.stream;;
 // StreamSubscription<String> streamSubscription = stream.listen((value) {
 //       print('Value from controller: $value');
-// }); 
+// });
 // controller.sink.add("1"); // prints "Value from controller: 1"
 // controller.sink.add("2"); // prints "Value from controller: 2"
 

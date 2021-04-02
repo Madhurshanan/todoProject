@@ -6,12 +6,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mobileuiintern/core/Failures/failures.dart';
 import 'package:mobileuiintern/core/usecases/usecase.dart';
 import 'package:mobileuiintern/features/agenda/domain/entites/agendaEntities.dart';
-import 'package:mobileuiintern/features/agenda/domain/repositories/agendaRepository.dart';
 import 'package:mobileuiintern/features/agenda/domain/usecases/agendaUseCaseGetTodo.dart';
 import 'package:mockito/mockito.dart';
 
-class MockAgendaGettodoTodoRepository extends Mock implements AgendaRepository {
-}
+import '../../mocks/agendaMocks.dart';
+
+
 
 void main() {
   final List<AgendaEntities> inputs = [
@@ -21,11 +21,11 @@ void main() {
     AgendaEntities(docId: '', description: 'GGG', title: 'GGG'),
   ];
 
-  MockAgendaGettodoTodoRepository mockAgendaGettodoTodoRepository;
+  MockAgendaRepository mockAgendaGettodoTodoRepository;
   AgendaUseCaseGetTodo agendaUseCaseGetTodo;
 
   setUp(() {
-    mockAgendaGettodoTodoRepository = MockAgendaGettodoTodoRepository();
+    mockAgendaGettodoTodoRepository = MockAgendaRepository();
     agendaUseCaseGetTodo =
         AgendaUseCaseGetTodo(agendaRepository: mockAgendaGettodoTodoRepository);
   });

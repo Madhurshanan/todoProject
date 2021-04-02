@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobileuiintern/core/usecases/usecase.dart';
 import 'package:mobileuiintern/features/agenda/domain/entites/agendaEntities.dart';
-import 'package:mobileuiintern/features/agenda/domain/usecases/todoUsecaseDelete.dart';
+import 'package:mobileuiintern/features/agenda/domain/usecases/agendaUsecaseDelete.dart';
 import 'package:stacked/stacked.dart';
 
 import 'package:mobileuiintern/features/agenda/domain/usecases/agendaUseCaseGetTodo.dart';

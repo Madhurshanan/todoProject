@@ -4,12 +4,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mobileuiintern/features/agenda/data/datasource/agendaDataSource.dart';
 import 'package:mobileuiintern/features/agenda/data/models/agendaModel.dart';
-import 'package:mobileuiintern/features/todo/data/models/todoModels.dart';
 import 'package:mockito/mockito.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../../mocks/firebaseMocks.dart';
-import '../../domain/repositories/agendaRepoImpl_test.dart';
 
 class MockQuerySnapshot extends Mock implements QuerySnapshot {}
 
@@ -23,10 +21,8 @@ void main() {
   MockFirebaseFirestore mockFirebaseFirestore;
   MockCollecitonreference mockCollecitonreference;
   AgendaDataSource agendaDataSourceImpl;
-  AgendaDataSourcesImpl agendaDataSourcesImpl;
   MockQueryDocSnapshot mockQueryDocSnapshot;
-  MockDocumentSnapshot mockDocumentSnapshot;
-  MockAgendaDataSources mockAgendaDataSources;
+
   MockQuerySnapshot mockQuerySnapshot;
   MockDocRef mockDocRef;
 
@@ -35,12 +31,11 @@ void main() {
   setUp(() {
     mockQueryDocSnapshot = MockQueryDocSnapshot();
     mockQuerySnapshot = MockQuerySnapshot();
-    mockAgendaDataSources = MockAgendaDataSources();
     mockFirebaseFirestore = MockFirebaseFirestore();
-    mockDocumentSnapshot = MockDocumentSnapshot();
     mockCollecitonreference = MockCollecitonreference();
     mockDocRef = MockDocRef();
-    agendaDataSourceImpl = AgendaDataSourcesImpl(firestore: mockFirebaseFirestore);
+    agendaDataSourceImpl =
+        AgendaDataSourcesImpl(firestore: mockFirebaseFirestore);
   });
 
   final todo = AgendaModel(docId: '123', title: 'A', description: 'B');

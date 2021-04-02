@@ -51,4 +51,24 @@ void main() {
           Left(ExcepitionIsGoingOn(error: "Failed")));
     });
   });
+
+//==================================STREMS=========================================
+  group('This is story of Streams Data Source Implementation', () {
+    test('Should return data when if there is data', () {
+      when(mockAgendaDataSources.getStream())
+          .thenAnswer((_) => Stream.fromIterable([todo]));
+      expect(agendaRepositoryImpl.getTodoStream(), emitsInOrder([todo]));
+    });
+
+    test('Should throw Error when if there is error', () {
+      when(mockAgendaDataSources.getStream())
+          .thenAnswer((_) => Stream.error("Error"));
+      expect(agendaRepositoryImpl.getTodoStream(), emitsError("Error"));
+    });
+
+    test('should therow nul when its empty', () {
+      when(mockAgendaDataSources.getStream()).thenAnswer((_) => Stream.empty());
+      expect(agendaRepositoryImpl.getTodoStream(), emitsDone);
+    });
+  });
 }

@@ -5,8 +5,7 @@ import 'package:mobileuiintern/features/agenda/data/datasource/agendaDataSource.
 import 'package:mobileuiintern/features/agenda/data/repositories/agendaRepositoriesImpl.dart';
 import 'package:mobileuiintern/features/agenda/domain/repositories/agendaRepository.dart';
 import 'package:mobileuiintern/features/agenda/domain/usecases/agendaUseCaseGetTodo.dart';
-import 'package:mobileuiintern/features/agenda/domain/usecases/todoUsecaseDelete.dart';
-import 'package:mobileuiintern/features/agenda/presentation/pages/agenda.dart';
+import 'package:mobileuiintern/features/agenda/domain/usecases/agendaUsecaseDelete.dart';
 import 'package:mobileuiintern/features/agenda/presentation/pages/agendaViewModel.dart';
 import 'package:mobileuiintern/features/login/data/datasources/loginDataSource.dart';
 import 'package:mobileuiintern/features/login/data/repositories/loginRepositoryImpl.dart';
