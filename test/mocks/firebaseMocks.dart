@@ -10,10 +10,6 @@ class MockUser extends Mock implements User {}
 
 class MockFirebaseFirestore extends Mock implements FirebaseFirestore {}
 
-class MockCollecitonreference extends Mock implements CollectionReference {
-  
-}
+class MockCollecitonreference extends Mock implements CollectionReference {}
 
-class MockDocRef extends Mock implements DocumentReference {
-  
-}
+class MockDocRef extends Mock implements DocumentReference {}

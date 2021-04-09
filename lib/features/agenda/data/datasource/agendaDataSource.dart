@@ -1,7 +1,6 @@
 //============================GET TODO PART====================================
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:mobileuiintern/core/exceptions/exceptions.dart';
 import 'package:mobileuiintern/features/agenda/data/models/agendaModel.dart';
 
@@ -44,21 +43,26 @@ class AgendaDataSourcesImpl implements AgendaDataSource {
 
   @override
   Stream<List<AgendaModel>> getStream() {
-    // TODO: implement setStream
-    throw UnimplementedError();
+    return firestore
+        .collection("todos")
+        .snapshots()
+        .map((e) => e.docs.map((e) => AgendaModel.fromMap(e.data())).toList());
+
+    //return result.docs.map((e) => AgendaModel.fromMap(e.data())).toList();
+
+    //return firestore.collection("todos").snapshots().map((snapshot))
   }
-
-
 }
-// StreamController<String> controller = StreamController<String>.broadcast();
-// Stream stream = controller.stream;;
-// StreamSubscription<String> streamSubscription = stream.listen((value) {
-//       print('Value from controller: $value');
-// });
-// controller.sink.add("1"); // prints "Value from controller: 1"
-// controller.sink.add("2"); // prints "Value from controller: 2"
-
-// stream.someMethod() ; // prints
-//                       // Value from controller: 1
-//                       // Value from controller: 2
-// controller.sink.add("3"); // prints "Value from controller: 3" by the someMethod()
+//Stream<S> map<S>(S Function(QuerySnapshot) convert)
+//
+//
+//     return StreamBuilder<QuerySnapshot>(
+//   stream: firestore.collection("todos").snapshots(),
+//   builder: (context,snapshot){
+//     if(snapshot.hasData) 
+//     {
+//       final message = snapshot.data.docs;
+//       List<AgendaModel>
+//     }
+//   },
+// );

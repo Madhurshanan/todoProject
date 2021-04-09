@@ -45,6 +45,40 @@ void main() {
     'title': "AA",
     'task': "BB",
   };
+//===================================STREAMS=============================================
+  group('Streams TODO', () {
+    final agendaModel = AgendaModel(title: "a", description: "b", docId: "c");
+
+    test('It should return succsesswhen it call', () {
+      when(mockFirebaseFirestore.collection("todos"))
+          .thenReturn(mockCollecitonreference);
+      when(mockCollecitonreference.snapshots())
+          .thenAnswer((_) => Stream.fromIterable([mockQuerySnapshot]));
+      when(mockQuerySnapshot.docs).thenReturn([mockQueryDocSnapshot]);
+      when(mockQueryDocSnapshot.data()).thenReturn(agendaModel.toMap());
+      expectLater(
+          agendaDataSourceImpl.getStream(),
+          emitsInOrder([
+            [agendaModel]
+          ]));
+    });
+
+    test('It should fail when its empty', () {
+      when(mockFirebaseFirestore.collection("todos"))
+          .thenReturn(mockCollecitonreference);
+      when(mockCollecitonreference.snapshots())
+          .thenAnswer((_) => Stream.empty());
+      expectLater(agendaDataSourceImpl.getStream(), emitsDone);
+    });
+
+    test('It should fail when there is Stream Error', () {
+      when(mockFirebaseFirestore.collection('todos'))
+          .thenReturn(mockCollecitonreference);
+      when(mockCollecitonreference.snapshots())
+          .thenAnswer((_) => Stream.error("Error"));
+      expectLater(agendaDataSourceImpl.getStream(),emitsError("Error"));
+    });
+  });
 
 //==================================GetTodo===============================================
   group('Get TODO', () {

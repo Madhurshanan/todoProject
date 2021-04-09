@@ -6,11 +6,13 @@ class AgendaStreamUsecase
     extends StreamUseCase<List<AgendaEntities>, NoParams> {
   final AgendaRepository agendaRepository;
 
-  AgendaStreamUsecase(this.agendaRepository)
+  AgendaStreamUsecase({this.agendaRepository})
       : assert(agendaRepository != null, "Agenda Repository Canot be null");
 
   @override
   Stream<List<AgendaEntities>> call(NoParams params) {
-    return agendaRepository.getTodoStream();
+     return agendaRepository.getTodoStream();
   }
+
+
 }

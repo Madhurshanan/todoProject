@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mobileuiintern/core/usecases/usecase.dart';
 import 'package:mobileuiintern/features/agenda/domain/entites/agendaEntities.dart';
 import 'package:mobileuiintern/features/agenda/domain/usecases/streamUseCase.dart';
+import 'package:mobileuiintern/serviceLocator.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../mocks/agendaMocks.dart';
@@ -12,7 +13,7 @@ void main() {
 
   setUp(() {
     agendaRepository = MockAgendaRepository();
-    agendaStreamUsecase = AgendaStreamUsecase(agendaRepository);
+    agendaStreamUsecase = AgendaStreamUsecase(agendaRepository: locator());
   });
   final list = [AgendaEntities()];
   test('Should return data when stream called', () {

@@ -1,20 +1,23 @@
-import 'dart:ffi';
-
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobileuiintern/core/usecases/usecase.dart';
 import 'package:mobileuiintern/features/agenda/domain/entites/agendaEntities.dart';
 import 'package:mobileuiintern/features/agenda/domain/usecases/agendaUsecaseDelete.dart';
+import 'package:mobileuiintern/features/agenda/domain/usecases/streamUseCase.dart'
+    as streamUse;
 import 'package:stacked/stacked.dart';
 
 import 'package:mobileuiintern/features/agenda/domain/usecases/agendaUseCaseGetTodo.dart';
 
-class AgendaViewModel extends BaseViewModel {
+class AgendaViewModel extends StreamViewModel<List<AgendaEntities>> {
   AgendaUseCaseGetTodo agendaUseCaseGetTodo;
   AgendaUsecaeDelete agendaUsecaeDelete;
+  final streamUse.AgendaStreamUsecase agendaStreamUsecase;
 
   AgendaViewModel(
-      {@required this.agendaUseCaseGetTodo, this.agendaUsecaeDelete});
+      {this.agendaUseCaseGetTodo,
+      this.agendaUsecaeDelete,
+      this.agendaStreamUsecase,
+      });
   List<AgendaEntities> listAgenda = [];
 
   Future<void> deleteTodo(int index) async {
@@ -23,7 +26,10 @@ class AgendaViewModel extends BaseViewModel {
     del.fold((l) {
       Get.snackbar('Error Occured', l.failureMessage);
     }, (r) {
-      Get.snackbar("Deleteted Todo","Sucsessfully Deleted",);
+      Get.snackbar(
+        "Deleteted Todo",
+        "Sucsessfully Deleted",
+      );
     });
   }
 
@@ -36,4 +42,11 @@ class AgendaViewModel extends BaseViewModel {
       notifyListeners();
     });
   }
+
+//Q
+  List<AgendaEntities> get todos => data;
+  @override
+  // TODO: implement stream
+  Stream<List<AgendaEntities>> get stream => agendaStreamUsecase(NoParams());
 }
+ 

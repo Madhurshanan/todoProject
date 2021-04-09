@@ -10,63 +10,58 @@ import '../../../../serviceLocator.dart';
 import '../widgets/taskWidget.dart';
 
 class Agenda extends StatelessWidget {
-  int _currentindex = 0;
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<AgendaViewModel>.reactive(
-        onModelReady: (model) async {
-          await model.getTooAgenda();
-          //await model.deleteTodoAgenda(index);
-        },
-        builder: (context, model, widget) {
-          //return SingleChildScrollView(
-          return Scaffold(
-            resizeToAvoidBottomInset: false,
-            appBar: AppBar(
-              leading: IconButton(
-                onPressed: () {
-                  Get.to(Profile());
-                },
-                icon: Icon(
-                  Icons.account_circle_sharp,
-                  size: 50.0,
-                  color: Colors.black,
-                ),
-              ),
-              title: Text("Agenda"),
+    //return SingleChildScrollView(
+    return Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Get.to(Profile());
+            },
+            icon: Icon(
+              Icons.account_circle_sharp,
+              size: 50.0,
+              color: Colors.black,
             ),
-            bottomNavigationBar: BottomNavigationBar(
-              items: [
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.menu_book_sharp), title: Text("MY TODOS")),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.add), title: Text("NEW TODO")),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.account_circle), title: Text("PROFILE")),
-              ],
-              onTap: (index) {
-                _currentindex = index;
-              },
-            ),
-            body: SingleChildScrollView(
+          ),
+          title: Text("Agenda"),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.menu_book_sharp), title: Text("MY TODOS")),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.add), title: Text("NEW TODO")),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle), title: Text("PROFILE")),
+          ],
+          onTap: (index) {
+            //_currentindex = index;
+          },
+        ),
+        body: ViewModelBuilder<AgendaViewModel>.reactive(
+          builder: (context, model, child) {
+            return SingleChildScrollView(
               child: Column(
                 children: [
                   Container(
-                      child: MaterialButton(
-                        child: Icon(Icons.add, color: Colors.white, size: 50.0),
-                        minWidth: double.infinity,
-                        height: 60.0,
-                        onPressed: () => showDialog(
-                          context: context,
-                          child: AddTodo(),
-                          barrierDismissible: false,
-                        ),
-                        color: Colors.purple,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50)),
+                    child: MaterialButton(
+                      child: Icon(Icons.add, color: Colors.white, size: 50.0),
+                      minWidth: double.infinity,
+                      height: 60.0,
+                      onPressed: () => showDialog(
+                        context: context,
+                        child: AddTodo(),
+                        barrierDismissible: false,
                       ),
-                      ),
+                      color: Colors.purple,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50)),
+                    ),
+                  ),
                   // Container(
                   //   child: SingleChildScrollView(
                   //     child:
@@ -91,9 +86,11 @@ class Agenda extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-          );
-        },
-        viewModelBuilder: () => locator<AgendaViewModel>());
+            );
+          },
+          viewModelBuilder: () => locator<AgendaViewModel>()
+        ));
   }
+
+  //viewModelBuilder: () => locator<AgendaViewModel>());
 }

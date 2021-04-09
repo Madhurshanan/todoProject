@@ -32,6 +32,7 @@ class AgendaRepositoryImpl implements AgendaRepository {
     }
   }
 
+//=================================STREAM=========================================
   @override
   Stream<List<AgendaEntities>> getTodoStream() {
     return agendaDataSource.getStream();
