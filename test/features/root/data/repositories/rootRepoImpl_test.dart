@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mobileuiintern/features/root/data/datasources/rootDataSource.dart';
 import 'package:mobileuiintern/features/root/data/repositories/rootRepoImpl.dart';

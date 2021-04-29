@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mobileuiintern/core/usecases/usecase.dart';
 import 'package:mobileuiintern/features/root/domain/usecase/rootUseCasese.dart';
-import 'package:mobileuiintern/serviceLocator.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../../agenda/mocks/agendaMocks.dart';

@@ -88,8 +88,8 @@ void getTodoAgendaViewModel() {
       () => AgendaUsecaeDelete(agendaRepository: locator()));
 
   //delete -viewmodels
-  locator.registerFactory(() => AgendaViewModel(
-      agendaUseCaseGetTodo: locator(), agendaUsecaeDelete: locator()));
+  // locator.registerFactory(() => AgendaViewModel(
+  //     agendaUseCaseGetTodo: locator(), agendaUsecaeDelete: locator()));
 
   // usecase
   locator.registerLazySingleton(

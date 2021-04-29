@@ -10,6 +10,8 @@ void main() {
   MockUser mockuser;
 
   setUp(() {
+    mockFirebaseAuth = MockFirebaseAuth();
+    mockuser = MockUser();
     rootDataSourceImpl = RootDataSourceImpl(firebaseAuth: mockFirebaseAuth);
   });
 

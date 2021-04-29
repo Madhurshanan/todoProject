@@ -5,14 +5,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mobileuiintern/core/Failures/failures.dart';
 import 'package:mobileuiintern/core/exceptions/exceptions.dart';
 import 'package:mobileuiintern/features/todo/data/datasources/todoDataSources.dart';
-import 'package:mobileuiintern/features/todo/data/models/todoModels.dart';
+//import 'package:mobileuiintern/features/todo/data/models/todoModels.dart';
 import 'package:mobileuiintern/features/todo/data/repositories/todoRepositoryImpl.dart';
 import 'package:mockito/mockito.dart';
 
 class MockTodoDataSources extends Mock implements TodoDataSources {}
 
 void main() {
-  final todo = [TodoModels(docId: 'a', title: 'b', description: 'c')];
+  //final todo = [TodoModels(docId: 'a', title: 'b', description: 'c')];
 
   MockTodoDataSources mockTodoDataSources;
   TodoRepositoryImpl todoRepositoryImpl;

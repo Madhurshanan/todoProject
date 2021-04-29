@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:mobileuiintern/core/usecases/usecase.dart';
 import 'package:mobileuiintern/features/agenda/presentation/pages/agenda.dart';
 import 'package:mobileuiintern/features/todo/domain/usecases/todoUsecaseInsert.dart';
 import 'package:stacked/stacked.dart';

@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobileuiintern/features/agenda/presentation/pages/agenda.dart';
+import 'package:mobileuiintern/features/root/presentation/pages/rootView.dart';
+import 'package:mobileuiintern/features/root/presentation/pages/rootViewModel.dart';
 import 'package:mobileuiintern/serviceLocator.dart';
 
 void main() async {
@@ -16,18 +18,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: GetMaterialApp(
-        home: Agenda(),
+        home: RootView()
       ),
     );
   }
 }
 
-// class MyApp extends StatelessWidget {
-//   // This widget is the root of your application.
-//   @override
-//       //Widget build(BuildContext context) =>
-//       // ChangeNotifierProvider(
-//       //   create: (context) => TodoProvider(),
-//
-//       );
-// }
+
